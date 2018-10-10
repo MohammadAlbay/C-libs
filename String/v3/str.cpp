@@ -14,12 +14,13 @@
  **************************************************************************************************************************
   ************************************************************************************************************************/
 /*\
-|*| changes \ updates log ( V3 ) {
+|*| changes \ updates log ( V2 ) {
+|*|     + print methods (2 static variants).
+|*|     + updated constructer and append method.
+|*|     + fixed memory allocation errors.
 |*|     + pop() method to delete last char.
 |*|     + append(str p) method to add object.value() to current object.
 |*|     + input(),inputs(unsigned int BufferSize) and read()[+ overload] method to read data from input stream
-|*|     + append() now returns (str *) for use a chain of append. e.g: obj.append("Hello")->append(",")->append("World!") 
-|*|     + fixed many bugs, now it works very well, no memory leaks were noticed- i hope so :)
 |*| }
 \*/
 #include <vector>
@@ -359,9 +360,9 @@ namespace mdasd
 
         static char * inputs(unsigned int BufferSize)
         {
-            char * buffer = new char[BufferSize];
-            cin >> buffer;
-            return buffer;
+            string v;
+            getline(cin,v);
+            return (char *)v.c_str();
         }
         static char * input()
         {
